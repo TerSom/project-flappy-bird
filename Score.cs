@@ -6,27 +6,18 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    public TextMeshProUGUI scoreUI;
-    public float score;
+
+    int score;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ScoreUp()
     {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("u"))
-        {
-            score += 1;
-            scoreUI.text = "Score : " + score.ToString();
-            Destroy(collision.collider.gameObject);
-        }
+        score++;
+        GetComponent<TextMeshProUGUI>().text = score.ToString();
     }
 }
